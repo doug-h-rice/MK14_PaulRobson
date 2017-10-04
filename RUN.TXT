@@ -1,0 +1,46 @@
+           Using MK14,MK14G and WK14 - the portable emulator
+           =================================================
+
+These are three ports of the MK14 "C" emulator. One is for Windows, two
+are for DOS (one uses Graphics, one uses Text Mode)
+
+To compile the emulators you need to link CPU.C MEMORY.C and MAIN.C or
+MINMAIN.C to a suitable DRV_xxx.C file for your OS. A file for DOS is
+provided. The DOS port was written in Borland Turbo C v2.0
+
+The Windows port involves linking CPU.C and MEMORY.C with MK14W.C which
+provides the functions of both Main.C and Drv_Win.C. This was compiled
+using Borland Turbo C++ v4.5
+
+Porting is relatively simple. The EGA port took about 20 minutes to
+write, the Windows one only slightly longer. The hardest bit is emulating
+the key presses due to the **!!* DOS keyboard handling. All you have to
+do is Display the LEDs, scan the keys, and synchronise the clock. The
+last is optional but games will be hard if you don't....
+
+To load an image, run it from the command line (DOS) e.g. MK14 CLOCK.HEX
+In windows, you can either associate .HEX files with WK14.EXE or drop
+.HEX files onto the Emulator window (WK14 supports drag and drop).
+
+Keys to use
+===========
+
+0-9,A-F Hexadecimal Keys
+T       Term
+M       Mem
+G       Go
+Z       Abort
+R       Reset
+/       Quit (DOS)
+ESC     Quit (Windows)
+G       Start MK14 Emulator (Windows)
+LClick  Start/Stop MK14 Emulator (Windows)
+
+Moving the mouse a reasonable distance will also pause the windows emulation.
+
+This emulator will not be developed further, apart from bug fixing. If you
+wish to port (to say Unix) and are confused, feel free to email me. If
+someone produces another port I would like to have at least a link to it
+on my site.
+
+Paul Robson (autismuk@aol.com)
